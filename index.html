@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Dad</title>
+    <style>
+        body {
+            background-image: url('happy3.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            height: 100vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            margin: 0; /* Remove default margin */
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            width: 100%;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+        .text-section {
+            flex: 1;
+            margin: 20px; /* Adjusted margin for smaller screens */
+        }
+        .message {
+            color: Red;
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+        .text {
+            color: black;
+            font-size: large;
+            max-width: 800px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+        }
+        .image {
+            flex: 0 0 300px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-left: 10%;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .message {
+                font-size: 40px; /* Smaller font size on small screens */
+            }
+            .text {
+                font-size: medium; /* Adjust text size */
+            }
+            .container {
+                flex-direction: column; /* Stack elements vertically */
+                align-items: center; /* Center align on smaller screens */
+            }
+            .text-section {
+                margin: 10px 0; /* Adjust margin for smaller screens */
+                max-width: 90%; /* Allow more space on small screens */
+            }
+            .image {
+                flex: 0 0 80%; /* Take more width on smaller screens */
+                margin: 0; /* Remove margin */
+            }
+            img {
+                margin: 0; /* Center image */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .message {
+                font-size: 30px; /* Even smaller font size on very small screens */
+            }
+            .text {
+                font-size: small; /* Adjust text size further */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-section">
+            <div class="message">Happy Birthday, Dad!</div>
+            <div class="text">
+                "Dad, on your special day, I want you to know just how much you mean to me. You’ve been my guide, my protector, and my biggest fan through every step of life. Your love and support have given me the confidence to chase my dreams, and your wisdom has always pointed me in the right direction. I’m endlessly grateful for the sacrifices you’ve made and the values you’ve instilled in me. Today, I celebrate not just the incredible father you are, but the amazing person you’ve always been. Happy Birthday! I love you more than words can say."
+            </div>
+        </div>
+        <div class="image">
+            <img src="h.jpg" alt="Birthday Image">
+        </div>
+    </div>
+</body>
+</html>
