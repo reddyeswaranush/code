@@ -5,7 +5,6 @@ class Solution:
         for i in range(1,n+1):
             if i%m!=0:
                 num1+=i
-        for i in range(1,n+1):
-            if i%m==0:
+            else:
                 num2+=i
         return num1-num2
