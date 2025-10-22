@@ -8,15 +8,18 @@ class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
-        x=0
-        q=[root]
-        while q:
-            a=len(q)
+        result=[]
+        queue=[]
+        queue.append(root)
+        while queue:
+            a=len(queue)
+            b=[]
             for _ in range(a):
-                node=q.pop(0)
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-            x+=1
-        return x
+                c=queue.pop(0)
+                b.append(c.val)
+                if c.left:
+                    queue.append(c.left)
+                if c.right:
+                    queue.append(c.right)
+            result.append(b)
+        return len(result)
