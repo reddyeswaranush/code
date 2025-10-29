@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
-        if not root:
+        if root==None:
             return None
         if key<root.val:
             root.left=self.deleteNode(root.left,key)
@@ -22,4 +22,4 @@ class Solution:
                 temp_right=temp_right.left
             root.val=temp_right.val
             root.right=self.deleteNode(root.right,temp_right.val)
-        return root 
+        return root
