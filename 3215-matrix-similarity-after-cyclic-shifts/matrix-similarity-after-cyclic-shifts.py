@@ -1,6 +1,6 @@
 class Solution:
     def areSimilar(self, mat: List[List[int]], k: int) -> bool:
-        x = [row[:] for row in mat]
+        x = mat[:]
         m=len(mat)
         n=len(mat[0])
         k=k%n
