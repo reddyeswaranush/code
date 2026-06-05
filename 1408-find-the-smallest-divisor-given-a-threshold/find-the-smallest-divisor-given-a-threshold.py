@@ -1,16 +1,16 @@
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        x=2**31-1
         left=1
         right=max(nums)
         while left<=right:
-            mid=(left+right)//2
+            mid=left+(right-left)//2
             a=0
             for i in nums:
-                a+=math.ceil((i)/mid)
+                a+=i//mid
+                if i%mid!=0:
+                    a+=1
             if a<=threshold:
-                right=mid-1    
-                x=mid
+                right=mid-1
             else:
                 left=mid+1
-        return x
+        return left
