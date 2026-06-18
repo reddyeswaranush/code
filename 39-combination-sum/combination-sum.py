@@ -1,17 +1,15 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         x=[]
-        index=0
-        n=len(candidates)
-        def ans(index,total,a):
-            if index==n or total>target:
+        def helper(a,s,ind):
+            if s==target:
+                x.append(a[:])
                 return
-            if total==target:
-                x.append(a.copy())
-                return 
-            a.append(candidates[index])
-            ans(index,total+candidates[index],a)
-            a.pop()
-            ans(index+1,total,a)
-        ans(0,0,[])
-        return x     
+            if s>target:
+                return
+            for i in range(ind,len(candidates)):
+                a.append(candidates[i])
+                helper(a,s+candidates[i],i)
+                a.pop()
+        helper([], 0, 0)
+        return x
