@@ -1,5 +1,6 @@
 class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
+        arr=set(arr)
         x=0
         for i in range(1,max(arr)+1):
             if i not in arr:
