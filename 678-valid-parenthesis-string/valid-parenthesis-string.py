@@ -1,23 +1,25 @@
 class Solution:
     def checkValidString(self, s: str) -> bool:
-        a=[]
-        b=[]
-        for i in range(len(s)):
+        open_par=[]
+        star_par=[]
+        n=len(s)
+        for i in range(n):
             if s[i]=='(':
-                a.append(i)
+                open_par.append(i)
             elif s[i]=='*':
-                b.append(i)
+                star_par.append(i)
             else:
-                if a:
-                    a.pop()
-                elif b:
-                    b.pop()
+                if open_par:
+                    open_par.pop()
                 else:
-                    return False
-        while a and b:
-            if a[-1]<b[-1]:
-                a.pop()
-                b.pop()
+                    if star_par:
+                        star_par.pop()
+                    else:
+                        return False
+        while open_par and star_par:
+            if open_par[-1]<star_par[-1]:
+                open_par.pop()
+                star_par.pop()
             else:
                 return False
-        return len(a)==0
+        return len(open_par)==0
