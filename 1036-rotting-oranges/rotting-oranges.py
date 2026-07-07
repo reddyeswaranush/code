@@ -1,29 +1,29 @@
 from collections import deque
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
-        n=len(grid)
-        m=len(grid[0])
+        m=len(grid)
+        n=len(grid[0])
         q=deque()
-        fresh=0
-        for i in range(n):
-            for j in range(m):
+        f=0
+        for i in range(m):
+            for j in range(n):
                 if grid[i][j]==2:
                     q.append((i,j))
                 elif grid[i][j]==1:
-                    fresh+=1
-        
-        ans=0
-        directions = [(1,0), (-1,0), (0,1), (0,-1)]
-        while q and fresh>0:
-            for _ in range(len(q)):
-                x,y=q.popleft()
-                for i,j in directions:
-                    nx,ny=x+i,y+j
-                    if 0 <= nx < n and 0 <= ny < m and grid[nx][ny] == 1:
-                        grid[nx][ny] = 2
-                        fresh -= 1
-                        q.append((nx, ny))
-            
-            ans += 1
-        
-        return ans if fresh == 0 else -1
+                    f+=1
+        time=0
+        dirr=[[0,1],[1,0],[0,-1],[-1,0]]
+        while q and f>0:
+            a=len(q)
+            time+=1
+            for _ in range(a):
+                b=q.popleft()
+                for i in dirr:
+                    x=b[0]+i[0]
+                    y=b[1]+i[1]
+                    if 0<=x<m and 0<=y<n and grid[x][y]==1:
+                        f-=1
+                        grid[x][y]=2
+                        q.append((x,y))
+
+        return time if f==0 else -1
