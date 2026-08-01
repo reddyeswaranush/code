@@ -1,21 +1,19 @@
 class Solution:
-    def possible(self, cap, weights, days):
-        x=1
-        cur=0
-        for w in weights:
-            if cur+w>cap:
-                x+=1
-                cur=0
-            cur+=w
-        return x<=days
-
     def shipWithinDays(self, weights: List[int], days: int) -> int:
         left=max(weights)
         right=sum(weights)
-        while left<=right:
+        while left<right:
             mid=left+(right-left)//2
-            if self.possible(mid,weights,days):
-                right=mid-1
-            else:
+            a=0
+            b=1
+            for i in weights:
+                if a+i>mid:
+                    b+=1
+                    a=i
+                else:
+                    a+=i
+            if b>days:
                 left=mid+1
+            else:
+                right=mid
         return left
