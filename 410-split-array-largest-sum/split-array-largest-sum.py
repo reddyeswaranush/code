@@ -1,19 +1,19 @@
 class Solution:
     def splitArray(self, nums: List[int], k: int) -> int:
-        low=max(nums)
-        high=sum(nums)
-        while low<high:
-            mid=low+(high-low)//2
+        left=max(nums)
+        right=sum(nums)
+        while left<right:
+            mid=left+(right-left)//2
             a=0
-            split=1
+            b=1
             for i in nums:
                 if a+i>mid:
-                    split+=1
+                    b+=1
                     a=i
                 else:
                     a+=i
-            if split>k:
-                low=mid+1
+            if b>k:
+                left=mid+1
             else:
-                high=mid
-        return low
+                right=mid
+        return left
