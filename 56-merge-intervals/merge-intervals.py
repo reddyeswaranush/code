@@ -3,12 +3,12 @@ class Solution:
         intervals=sorted(intervals, key=lambda x:x[0])
         n=len(intervals)
         a=[]
-        for i in range(n):
+        for i in intervals:
             if len(a)==0:
-                a.append(intervals[i])
+                a.append(i)
             else:
-                if a[-1][1]>=intervals[i][0]:
-                    a[-1][1]=max(a[-1][1],intervals[i][1])
+                if a[-1][1]>=i[0]:
+                    a[-1][1]=max(a[-1][1],i[1])
                 else:
-                    a.append(intervals[i])
+                    a.append(i)
         return a
