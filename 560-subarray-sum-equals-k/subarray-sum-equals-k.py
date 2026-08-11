@@ -4,7 +4,7 @@ class Solution:
         b=0
         ans=0
         for i in nums:
-            b=b+i
+            b+=i
             if b-k in a:
                 ans+=a[b-k]
             if b not in a:
