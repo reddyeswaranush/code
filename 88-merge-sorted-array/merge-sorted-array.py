@@ -8,4 +8,4 @@ class Solution:
             if nums1[i]==0 and j<n:
                 nums1[i]=nums2[j]
                 j+=1
-        nums1.sort()
+        return nums1.sort()
