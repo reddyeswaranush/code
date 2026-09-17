@@ -1,19 +1,24 @@
-from collections import defaultdict
 class Solution:
-    def totalFruit(self, fruits: List[int]) -> int:
-        count = defaultdict(int)
-        left = 0
-        max_len = 0
-
-        for right in range(len(fruits)):
-            count[fruits[right]] += 1
-
-            while len(count) > 2:
-                count[fruits[left]] -= 1
-                if count[fruits[left]] == 0:
-                    del count[fruits[left]]
-                left += 1
-
-            max_len = max(max_len, right - left + 1)
-
-        return max_len
+    def totalFruit(self, fruits: list[int]) -> int:
+        a={}
+        ans=0
+        left=0
+        n=len(fruits)
+        for i in range(n):
+            if len(a)==2:
+                if fruits[i] in a:
+                    a[fruits[i]]+=1
+                else:
+                    while left<i and len(a)==2:
+                        a[fruits[left]]-=1
+                        if a[fruits[left]]==0:
+                            del a[fruits[left]]
+                        left+=1
+                    a[fruits[i]]=1
+            elif len(a)<2:
+                if fruits[i] not in a:
+                    a[fruits[i]]=0
+                a[fruits[i]]+=1
+            ans=max(ans,i-left+1)
+        ans=max(ans,i-left+1)
+        return ans
